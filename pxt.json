@@ -11,6 +11,10 @@
         "custom.ts",
         "tutorials/lesson1-v1.md"
     ],
+    "targetVersions": {
+        "target": "2.1.27",
+        "targetId": "minecraft"
+    },
     "supportedTargets": [
         "minecraft"
     ],
