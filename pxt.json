@@ -1,5 +1,5 @@
 {
-    "name": "TutorialTemplate",
+    "name": "Tutorial01",
     "version": "0.0.1",
     "dependencies": {
         "core": "*",
@@ -9,7 +9,7 @@
         "README.md",
         "main.ts",
         "custom.ts",
-        "tutorials/lesson1-v1.md"
+        "tutorials/lesson1-v2.md"
     ],
     "targetVersions": {
         "target": "2.1.27",
