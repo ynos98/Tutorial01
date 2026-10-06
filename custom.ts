@@ -44,7 +44,7 @@ namespace easyBlock {
      * @param dir エージェントの向き
      */
     //% group="エージェントをうごかす"
-    //% block="%dir を向く"
+    //% block="%dir をむく"
     //% weight=890
     export function agentTurn(dir: TurnDir): void {
         agent.turn(dir)
@@ -61,6 +61,18 @@ namespace easyBlock {
     //% weight=880
     export function agentMove(dir: SixDir, blocks: number): void {
         agent.move(dir, blocks)
+    }
+
+    /**
+     * エージェントに攻撃させる
+     * @param dir 攻撃する方向
+     */
+    //% group="エージェントをうごかす"
+    //% block="%dir をこうげきする"
+    //% blocks.defl=1
+    //% weight=870
+    export function agentAttack(dir: SixDir): void {
+        agent.attack(dir)
     }
 
     /**
