@@ -9,7 +9,7 @@
         "README.md",
         "main.ts",
         "custom.ts",
-        "tutorials/lesson1-v11.md"
+        "tutorials/u3-2-v1.md"
     ],
     "targetVersions": {
         "target": "2.1.27",
