@@ -141,7 +141,8 @@ player.onChat("left", function () {
     easyBlock.agentMove(SixDir.Front, 1)
 })
 ```
-```ghosplayer.onChat("left", function () {
+```ghost
+player.onChat("left", function () {
     easyBlock.agentMove(SixDir.Back, 1)
     easyBlock.agentMove(SixDir.Left, 12)
     easyBlock.agentMove(SixDir.Front, 1)
