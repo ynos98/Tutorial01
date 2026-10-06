@@ -1,44 +1,31 @@
 ### @hideIteration true 
 ### @explicitHints 1
 
-# test
+# Unit3
 
-## callコマンドを作ろう
-``||player: チャットコマンド||``を出して、名前を **call** にしよう。<br>
-チャットコマンドの中に ``||easyBlock: エージェントをよぶ||`` を入れよう。
+## 前回のふりかえり
+前回のふりかえりをしよう。
+callコマンド、turnコマンドをつくったところからはじめるよ。
 
 ### ~ tutorialhint
 ```blocks
 player.onChat("call", function () {
     easyBlock.agentTeleportToPlayer()
 })
+player.onChat("turn", function () {
+    easyBlock.agentTurn(TurnDir.Right)
+})
 ```
 ```ghost
 player.onChat("call", function () {
     easyBlock.agentTeleportToPlayer()
 })
-```
-
-## turnコマンドを作ろう
-``||player: チャットコマンド||``を出して、名前を **turn** にしよう。<br>
-チャットコマンドの中に ``||easyBlock: 右を向く||`` を入れよう。
-
-終わったら、再生ボタンをクリックして「T」キーでチャットをひらき
-**call** と **turn** と入れてみよう。
-
-### ~ tutorialhint
-```blocks
-player.onChat("turn", function () {
-    easyBlock.agentTurn(TurnDir.Right)
-})
-```
-```ghost
 player.onChat("turn", function () {
     easyBlock.agentTurn(TurnDir.Right)
 })
 ```
 
-## インベントリのじゅんびをしよう
+## (ふりかえり) インベントリのじゅんびをしよう
 エージェントを右クリックして、インベントリにレンガを入れてあげよう。<br><br>
 じゅんびのためのブロックを **最初だけ** の中に入れよう。<br>
 ``||easyBlock: スロット 1 をつかう||`` を入れて、インベントリのいちばん左上のスロットをつかうようにしよう。<br>
@@ -54,7 +41,7 @@ easyBlock.agentSetSlot(1)
 easyBlock.agentPlaceFromAnySlot(true)
 ```
 
-## カベをつくろう
+## (ふりかえり) カベをつくろう
 よこに長いカベをつくってみよう。<br><br>
 ``||player: チャットコマンド||``を出して、名前を **wall1** にしよう。<br>
 ``||loops: くりかえし||`` をチャットコマンドの中に入れて、その中に ``||easyBlock: エージェント||`` をうごかすコマンドを入れよう。
@@ -83,7 +70,7 @@ player.onChat("wall1", function () {
 })
 ```
 
-## 高いカベをつくろう
+## ここから
 つぎは、高いカベをつくってみよう。<br><br>
 ``||player: チャットコマンド||``を出して、名前を **wall2** にしよう。<br>
 **wall1** と同じように、``||loops: くりかえし||`` をチャットコマンドの中に入れよう。<br>
@@ -114,31 +101,5 @@ player.onChat("wall2", function () {
     }
     easyBlock.agentMove(SixDir.Up, 1)
     easyBlock.agentMove(SixDir.Left, 3)
-})
-```
-
-## ドアをはめる穴をあけよう
-高いカベの中に、ドアをはめ込むための穴をあけよう<br><br>
-``||player: チャットコマンド||``を出して、名前を **break** にしよう。<br>
-``||loops: くりかえし||`` をチャットコマンドの中に入れて、その中に ``||easyBlock: エージェント||`` をうごかすコマンドを入れよう。
-* エージェントの前にあるブロックをタテ2マス分ブロックこわすには、どうすればいいかな？
-
-### ~ tutorialhint
-エージェントの前にあるブロックをこわしたあと、<br>
-1マス上にあがれば、タテ2マス分のブロックをこわせるよ。
-```blocks
-player.onChat("break", function () {
-    for (let index = 0; index < 2; index++) {
-        easyBlock.agentDestroy(SixDir.Front)
-        easyBlock.agentMove(SixDir.Up, 1)
-    }
-})
-```
-```ghost
-player.onChat("break", function () {
-    for (let index = 0; index < 2; index++) {
-        easyBlock.agentDestroy(SixDir.Front)
-        easyBlock.agentMove(SixDir.Up, 1)
-    }
 })
 ```
