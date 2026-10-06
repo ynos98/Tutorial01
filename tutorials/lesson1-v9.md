@@ -109,20 +109,20 @@ player.onChat("wall", function () {
 できあがったら、**right** コマンドでエージェントを右の道にうごかしてみよう。
 
 ### ~ tutorialhint
-カベにぶつからないよう、1マス上がってからうごきだそう。
+カベにぶつからないよう、1マスうしろに下がってからうごきだそう。
 道と道のあいだは12マスあるよ。うまくかぞえられたかな？
 ```blocks
 player.onChat("right", function () {
-    easyBlock.agentMove(SixDir.Up, 1)
+    easyBlock.agentMove(SixDir.Back, 1)
     easyBlock.agentMove(SixDir.Right, 12)
-    easyBlock.agentMove(SixDir.Down, 1)
+    easyBlock.agentMove(SixDir.Front, 1)
 })
 ```
 ```ghost
 player.onChat("right", function () {
-    easyBlock.agentMove(SixDir.Up, 1)
+    easyBlock.agentMove(SixDir.Back, 1)
     easyBlock.agentMove(SixDir.Right, 12)
-    easyBlock.agentMove(SixDir.Down, 1)
+    easyBlock.agentMove(SixDir.Front, 1)
 })
 ```
 
@@ -136,15 +136,14 @@ player.onChat("right", function () {
 ### ~ tutorialhint
 ```blocks
 player.onChat("left", function () {
-    easyBlock.agentMove(SixDir.Up, 1)
+    easyBlock.agentMove(SixDir.Back, 1)
     easyBlock.agentMove(SixDir.Left, 12)
-    easyBlock.agentMove(SixDir.Down, 1)
+    easyBlock.agentMove(SixDir.Front, 1)
 })
 ```
-```ghost
-player.onChat("left", function () {
-    easyBlock.agentMove(SixDir.Up, 1)
+```ghosplayer.onChat("left", function () {
+    easyBlock.agentMove(SixDir.Back, 1)
     easyBlock.agentMove(SixDir.Left, 12)
-    easyBlock.agentMove(SixDir.Down, 1)
+    easyBlock.agentMove(SixDir.Front, 1)
 })
 ```
