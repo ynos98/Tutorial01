@@ -10,7 +10,7 @@
         "main.ts",
         "custom.ts",
         "tutorials/u3-2-v1.md",
-        "tutorials/20261010.md"
+        "tutorials/build-20261010.md"
     ],
     "targetVersions": {
         "target": "2.1.27",
