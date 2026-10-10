@@ -83,7 +83,7 @@ namespace easyBlock {
     //% slot.defl=1
     //% weight=790
     export function agentSetSlot(slot: number): void {
-        agent.drop(SixDir.Front, 1, slot)
+        agent.setSlot(slot)
     }
 
     /**
@@ -118,6 +118,92 @@ namespace easyBlock {
     //% weight=760
     export function agentDestroy(dir: SixDir): void {
         agent.destroy(dir)
+    }
+
+    /**
+     * エージェントがタワーを作る(20261010_builder用)
+     * @param block つかうブロック
+     * @param depth タテの長さ
+     * @param width ヨコの長さ
+     * @param height 高さ
+     */
+    //% group="エージェントがつくる"
+    //% block="次のブロックで %block タテ %depth ヨコ %width たかさ %height のタワーをつくる"
+    //% block.shadow="minecraftBlock"
+    //% block.defl=Block.Grass
+    //% depth.defl=3
+    //% width.defl=3
+    //% height.defl=3
+    //% weight=750
+    export function agentBuildTower(block: number, depth: number, width: number, height: number) {
+        if (depth <= 1 || (width <= 1 || height <= 0)) {
+            player.tell(mobs.target(LOCAL_PLAYER), "エラー：サイズが小さすぎます")
+        } else {
+            if (agent.getOrientation() == 90) {
+                builder.face(WEST)
+            } else if (agent.getOrientation() == -90) {
+                builder.face(EAST)
+            } else if (agent.getOrientation() == 0) {
+                builder.face(SOUTH)
+            } else {
+                builder.face(NORTH)
+            }
+            for (let index = 0; index < height; index++) {
+                builder.teleportTo(agent.getPosition())
+                agent.move(UP, 1)
+                for (let index = 0; index < 2; index++) {
+                    for (let index = 0; index < depth - 1; index++) {
+                        builder.place(block)
+                        builder.move(FORWARD, 1)
+                    }
+                    builder.turn(RIGHT_TURN)
+                    for (let index = 0; index < width - 1; index++) {
+                        builder.place(block)
+                        builder.move(FORWARD, 1)
+                    }
+                    builder.turn(RIGHT_TURN)
+                }
+            }
+        }
+    }
+
+    /**
+     * エージェントがユカを作る(20261010_builder用)
+     * @param block つかうブロック
+     * @param depth タテの長さ
+     * @param width ヨコの長さ
+     */
+    //% group="エージェントがつくる"
+    //% block="次のブロックで %block タテ %depth ヨコ %width のユカをつくる"
+    //% block.shadow="minecraftBlock"
+    //% block.defl=Block.Grass
+    //% depth.defl=3
+    //% width.defl=3
+    //% weight=740
+    export function agentBuildFloor(block: number, depth: number, width: number) {
+        if (depth <= 0 || width <= 0) {
+            player.tell(mobs.target(LOCAL_PLAYER), "エラー：サイズが小さすぎます")
+        } else {
+            if (agent.getOrientation() == 90) {
+                builder.face(WEST)
+            } else if (agent.getOrientation() == -90) {
+                builder.face(EAST)
+            } else if (agent.getOrientation() == 0) {
+                builder.face(SOUTH)
+            } else {
+                builder.face(NORTH)
+            }
+            builder.teleportTo(agent.getPosition())
+            agent.move(UP, 1)
+            for (let index = 0; index < width; index++) {
+                for (let index = 0; index < depth; index++) {
+                    builder.place(block)
+                    builder.move(FORWARD, 1)
+                }
+                builder.move(BACK, depth)
+                builder.move(RIGHT, 1)
+            }
+        }
     }
 
     /**

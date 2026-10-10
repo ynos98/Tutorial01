@@ -9,7 +9,8 @@
         "README.md",
         "main.ts",
         "custom.ts",
-        "tutorials/u3-2-v1.md"
+        "tutorials/u3-2-v1.md",
+        "20261010_builder.md"
     ],
     "targetVersions": {
         "target": "2.1.27",
